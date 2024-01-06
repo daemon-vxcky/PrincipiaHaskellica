@@ -7,3 +7,4 @@ main = do
     let quotient = n1 `div` n2
     let remainder = n1 `mod` n2
     putStrLn $ " The quotient of " ++ show n1 ++ " and " ++ show n2 ++ " is " ++ show quotient ++ "."
+    putStrLn $ " The remainder of " ++ show n1 ++ " and " ++ show n2 ++ " is " ++ show remainder ++ "."
