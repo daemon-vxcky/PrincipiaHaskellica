@@ -5,7 +5,7 @@
 --   >>> printName "John"
 --   John
 printName :: String -> IO()
-printName name = putStrLn name
+printName = putStrLn
 
 -- | The main function that executes the program.
 main :: IO()
