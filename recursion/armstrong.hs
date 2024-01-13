@@ -3,6 +3,7 @@ isArmstrong n = n == sumOfPowers n (numDigits n)
 
 sumOfPowers :: Int -> Int -> Int
 sumOfPowers n 0 = 0
+sumOfPowers 0 k = 0 -- Handle the base case when n is 0
 sumOfPowers n k = (digit ^ k) + sumOfPowers remainingDigits k
     where
         digit = n `mod` 10
