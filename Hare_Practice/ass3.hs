@@ -30,9 +30,13 @@ eight1 (_:x:xs) = x : eight1 xs
 eight2 :: [Int] -> [Int]
 eight2 list1 = [x | (x, idx) <- zip list1 [0..], odd idx]
 
--- 7. A Haskell function that reads a list and find the smallest element in the list. 
-seven :: [Int] -> Int
-seven (x:y:xs)  = if x<y then seven x:xs else 
+-- -- 7. A Haskell function that reads a list and find the smallest element in the list. 
+-- seven :: [Int] -> Int
+-- seven (x:y:xs)  = if x<y then seven x:xs else 
 
 
     
+main = do
+    putStrLn "Running"
+    num1 <- getLine
+    putStrLn num1
