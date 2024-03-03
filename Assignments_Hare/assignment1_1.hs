@@ -38,42 +38,6 @@ checkCharacter c
     | c `elem` "0123456789" = "Number"
     | otherwise             = "Other Character"
 
--- 8. Change the case of the given alphabet.
-changeCase :: Char -> Char
-changeCase c
-    | c `elem` ['a'..'z'] = toUpper c
-    | c `elem` ['A'..'Z'] = toLower c
-    | otherwise           = c
-
--- 9. Calculate the roots of a quadratic equation.
-quadraticRoots :: Double -> Double -> Double -> (Double, Double)
-quadraticRoots a b c = ((-b + sqrt (b * b - 4 * a * c)) / (2 * a), (-b - sqrt (b * b - 4 * a * c)) / (2 * a))
-
--- 10. Convert the single-digit number to words.
-digitToWords :: Int -> String
-digitToWords n
-    | n == 0    = "Zero"
-    | n == 1    = "One"
-    | n == 2    = "Two"
-    | n == 3    = "Three"
-    | n == 4    = "Four"
-    | n == 5    = "Five"
-    | n == 6    = "Six"
-    | n == 7    = "Seven"
-    | n == 8    = "Eight"
-    | n == 9    = "Nine"
-    | otherwise = "Not a single-digit number"
-
--- 11. Calculate the grade of students based on average mark.
--- calculateGrade :: Int -> Int -> Int -> Char
--- calculateGrade rollno mark1 mark2 mark3 =
---     let averageMark = (mark1 + mark2 + mark3) `div` 3
---     in  if | averageMark >= 80 -> 'A'
---            | averageMark >= 70 -> 'B'
---            | averageMark >= 60 -> 'C'
---            | averageMark >= 50 -> 'D'
---            | otherwise         -> 'F'
-
 -- 17. Implement a menu-driven calculator.
 menuDrivenCalculator :: Int -> Int -> Char -> Int
 menuDrivenCalculator num1 num2 operator
@@ -87,4 +51,40 @@ menuDrivenCalculator num1 num2 operator
 main :: IO ()
 main = do
     putStrLn "B. Selection Problems (Conditional Statements)"
-    -- You can test the functions here as per your requirements.
+
+    -- Test cases for the functions
+    putStrLn "1. Find the biggest of two numbers:"
+    putStrLn $ "Biggest of 5 and 10: " ++ show (biggestOfTwo 5 10)
+    putStrLn $ "Biggest of (-3) and 8: " ++ show (biggestOfTwo (-3) 8)
+
+    putStrLn "2. Find the smallest of two numbers:"
+    putStrLn $ "Smallest of 5 and 10: " ++ show (smallestOfTwo 5 10)
+    putStrLn $ "Smallest of (-3) and 8: " ++ show (smallestOfTwo (-3) 8)
+
+    putStrLn "3. Find the biggest of three numbers:"
+    putStrLn $ "Biggest of 5, 10, and 3: " ++ show (biggestOfThree 5 10 3)
+    putStrLn $ "Biggest of (-3), 8, and 12: " ++ show (biggestOfThree (-3) 8 12)
+
+    putStrLn "4. Check if a number is even or odd:"
+    putStrLn $ "Is 10 even? " ++ show (isEven 10)
+    putStrLn $ "Is 7 odd? " ++ show (isEven 7)
+
+    putStrLn "5. Check if a number is positive, negative, or zero:"
+    putStrLn $ "Check number 5: " ++ checkNumber 5
+    putStrLn $ "Check number (-3): " ++ checkNumber (-3)
+    putStrLn $ "Check number 0: " ++ checkNumber 0
+
+    putStrLn "6. Check if a number is divisible by 7:"
+    putStrLn $ "Is 14 divisible by 7? " ++ show (isDivisibleBy7 14)
+    putStrLn $ "Is 21 divisible by 7? " ++ show (isDivisibleBy7 21)
+
+    putStrLn "7. Check if a given character is vowel, number, or any other character:"
+    putStrLn $ "Check character 'a': " ++ checkCharacter 'a'
+    putStrLn $ "Check character '5': " ++ checkCharacter '5'
+    putStrLn $ "Check character '#': " ++ checkCharacter '#'
+
+    putStrLn "17. Implement a menu-driven calculator:"
+    putStrLn $ "10 + 5 = " ++ show (menuDrivenCalculator 10 5 '+')
+    putStrLn $ "10 - 5 = " ++ show (menuDrivenCalculator 10 5 '-')
+    putStrLn $ "10 * 5 = " ++ show (menuDrivenCalculator 10 5 '*')
+    putStrLn $ "10 / 5 = " ++ show (menuDrivenCalculator 10 5 '/')
