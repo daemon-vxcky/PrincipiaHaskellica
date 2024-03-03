@@ -1,0 +1,51 @@
+Lists:
+
+Easy:
+
+Write a function to find the length of a list.
+Write a function to reverse a list.
+Write a function to check if a list is palindrome.
+Medium:
+
+Write a function to remove duplicates from a list.
+Write a function to implement insertion sort on a list.
+Write a function to split a list into two parts at a given index.
+Hard:
+
+Write a function to implement merge sort on a list.
+Write a function to find the kth element from the end of a list.
+Write a function to implement quicksort on a list.
+Tuples:
+
+Easy:
+
+Write a function to swap the elements of a tuple.
+Write a function to find the maximum element in a tuple.
+Write a function to concatenate two tuples.
+Medium:
+
+Write a function to zip two lists into a list of tuples.
+Write a function to unzip a list of tuples into two separate lists.
+Write a function to calculate the dot product of two tuples.
+Hard:
+
+Write a function to implement matrix multiplication using tuples.
+Write a function to calculate the determinant of a 2x2 matrix represented as a tuple.
+Write a function to rotate a tuple representing a point by a given angle around the origin.
+Higher-order Functions:
+
+Easy:
+
+Write a function to apply a given function to each element of a list.
+Write a function to filter elements from a list based on a predicate.
+Write a function to implement map using foldr.
+Medium:
+
+Write a function to implement filter using foldr.
+Write a function to implement foldl using foldr.
+Write a function to implement zipWith using foldr.
+Hard:
+
+Write a function to implement unfoldr.
+Write a function to implement scanl using foldl.
+Write a function to implement scanr using foldr.
