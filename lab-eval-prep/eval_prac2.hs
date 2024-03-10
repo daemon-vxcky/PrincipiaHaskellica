@@ -66,10 +66,10 @@ percentage_calc (x:xs) w = (show (x/w * 100) ++ "%") : percentage_calc xs w
 percentWeight :: [Double] -> [String]
 percentWeight xs = percentage_calc xs (sumer xs) 
 
-add1 :: a -> a
+add1 :: Num a=> a -> a
 add1 a = a+1
 
-transformList :: (a -> a) -> [a] -> [a]
+transformList :: Num a => (a -> a) -> [a] -> [a]
 transformList _ [] = []
 transformList f (x:xs) = f x : transformList f xs
 
@@ -85,14 +85,38 @@ pickEven f (x:xs)
     | f x == True = x : pickEven f xs
     | otherwise = pickEven f xs
 
--- nthlargest :: (Num a) => [a] -> a -> a
--- nthlargest [] = []
--- nthlargest (x:xs) 1
 
+quicksort :: (Ord a) => [a] -> [a]
+quicksort [] = []
+quicksort (p:xs) =  quicksort greater ++ [p] ++ quicksort lesser
+    where
+        greater = [y |y <- xs,y > p]
+        lesser =  [y |y <- xs,y <= p]
+
+addtwo :: Num a => a -> a -> a
+addtwo x y = x + y
+
+zipwither :: Num a => (a -> a -> a) -> [a] -> [a] -> [a]
+zipwither _ [] _ = []
+zipwither _ _ [] = []
+zipwither f (x:xs) (y:ys) = f x y : zipwither f xs ys
+ 
+listrev :: [a] -> [a]
+listrev [] = []
+listrev (x:xs) = listrev xs ++ [x]
+
+listcomp :: [Int]
+listcomp = [x |x <- [1..10],x `mod` 2 /= 0]
+
+zipper :: [a] -> [b] -> [(a,b)]
+zipper [] _ = []
+zipper _ [] = []
+zipper (x:xs) (y:ys) = (x,y) : zipper xs ys
 
 main :: IO()
-main = do
+main = do 
     let list = [1..10]
+    let list2 = [11..20]
     let weights = [12,24,36,48]
     
     let tup = startEnd list
@@ -105,6 +129,11 @@ main = do
     let val = transformList add1 list
     let even_list = pickEven iseven list
     let middle_3 = middle3 list
+    let sorted = quicksort list
+    let odd_list = listcomp
+    let zipped = zipper list list2
+    let zipops = zipwither addtwo list list2
+    let rev = listrev list2
 
     putStrLn $ "The start and end of the list is: " ++ show tup
     putStrLn $ "The volume of the box is: " ++ show vol
@@ -116,3 +145,8 @@ main = do
     putStrLn $ "The value is : " ++ show val
     putStrLn $ "The even list is : " ++ show even_list
     putStrLn $ "The middle 3 elements are : " ++ show middle_3
+    putStrLn $ "The sorted  list is : " ++ show sorted
+    putStrLn $ "The odd list is : " ++ show odd_list
+    putStrLn $ "The zipped list is : " ++ show zipped
+    putStrLn $ "The two added lists are : "++ show zipops
+    putStrLn $ "The reversed list is : " ++ show rev
