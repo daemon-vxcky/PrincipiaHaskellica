@@ -29,5 +29,24 @@ lastEle (x:xs) = lastEle xs
 myrev :: [a]->[a]
 myrev [] = error "Empty List"
 myrev [x] = [x]
-myrev (x:xs) = lastEle(xs) : myInit(x:xs)
+myrev (x:xs) = lastEle(xs) : myrev(myInit(x:xs))
 
+listSum :: [Int]->Int
+listSum [] = 0
+listSum (x:xs) = x + listSum(xs)
+
+isElem :: Eq(a)=>a->[a]->Bool
+isElem _ [] = False
+isElem n (x:xs) = if n==x then True else isElem n (xs)
+
+freqElem :: Eq(a)=>a->[a]->Int
+freqElem _ [] = 0
+freqElem n (x:xs) = if n==x then 1 + freqElem n (xs) else freqElem n (xs)
+
+myMap :: (a->b)->[a]->[b]
+myMap f [] = []
+myMap f (x:xs) = f x : myMap f xs
+
+myFilter :: (a->Bool)->[a]->[a]
+myFilter f [] = []
+myFilter f (x:xs) = if f x then x : myFilter f (xs) else myFilter f (xs)
