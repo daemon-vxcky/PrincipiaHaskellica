@@ -50,3 +50,7 @@ myMap f (x:xs) = f x : myMap f xs
 myFilter :: (a->Bool)->[a]->[a]
 myFilter f [] = []
 myFilter f (x:xs) = if f x then x : myFilter f (xs) else myFilter f (xs)
+
+myFunc :: (b->Bool)->[(a,b)]->[(a,b)]
+myFunc f [] = []
+myFunc f ((x,y):xs) = if f y then (x,y): myFunc f (xs) else myFunc f (xs)
